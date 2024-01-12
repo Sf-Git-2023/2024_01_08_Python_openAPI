@@ -1,6 +1,6 @@
 import machine
 import time
-from machine import print
+from machine import Pin
 
 led25 = Pin("LED",Pin.OUT)
 while True:

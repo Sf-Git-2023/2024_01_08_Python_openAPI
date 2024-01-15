@@ -19,7 +19,7 @@ def alert(temp):
         rtc = RTC()
         date_tuple = rtc.datetime()
         date_str = f'{date_tuple[0]}-{date_tuple[1]}-{date_tuple[2]} {date_tuple[4]}:{date_tuple[5]}:{date_tuple[6]}'
-        url_str = f'https://hook.us1.make.com/用自已的?date={date_str}&temperature={temp}&from=學院養魚場'
+        url_str = f'https://hook.us1.make.com/cea1hul8l5ih6sfkfegu3ppo0vo0fbpy?date=2024-01-15-14:35:00&temperature=27&from=學院養魚場'
         try:
             response = urequests.get(url_str)            
         except:

@@ -6,7 +6,7 @@ import urequests
 red_led = Pin(15,mode=Pin.OUT)
 btn = Pin(14,mode=Pin.PULL_DOWN)
 is_press = False
-#connect()
+connect()
 
 def getCurrentTime():
     times_tuple = time.localtime()
@@ -38,12 +38,13 @@ while True:
         if btn.value() == False:
             if is_press == True:     
                 print('release')                
-                print(getCurrentTime())
-                print(getTemperature())
-                print(getLightValue())
+                currentTime = getCurrentTime()
+                temperature= getTemperature()
+                light=getLightValue()
+                
                 is_press = False
-                '''
-                url_str = 'https://自已的網址/pico_w/2024-01-22 16:02:10?address=chicken_KFC&celsius=15.386'
+                
+                url_str = f'https://自已的網址/pico_w/{currentTime}?address=chicken_KFC&celsius={temperature}&light={light}'
                 try:
                     response = urequests.get(url_str)
                     pass
@@ -56,7 +57,7 @@ while True:
                     else:
                         print("傳送失敗(server出現錯誤)")
                     response.close()
-                '''
+                
             
         
             red_led.value(0)

@@ -11,10 +11,10 @@ def read_root():
     counter = redis_conn.incr('test:increment',1)
     return {"Counter": counter}
 
-@app.get("/counter/{c}")
-def counter(c:int):
-    counter = redis_conn.incr('test:increment',c)
-    return {"Counter": counter}
+#@app.get("/counter/{c}")
+#def counter(c:int):
+#    counter = redis_conn.incr('test:increment',c)
+#    return {"Counter": counter}
 
 
 @app.get("/pico_w/{date}")

@@ -13,7 +13,12 @@ def getCurrentTime():
     currentTime = f'{times_tuple[0]}-{times_tuple[1]}-{times_tuple[2]} {times_tuple[3]}:{times_tuple[4]}:{times_tuple[5]}'
     return currentTime
 
-
+def getTemperature():
+    sensor_temp = machine.ADC(4)
+    conversion_factor = 3.3 / (65535)
+    reading = sensor_temp.read_u16() * conversion_factor
+    temperature = 27 - (reading - 0.706)/0.001721
+    return temperature
 
 while True:
     if btn.value():
@@ -29,6 +34,7 @@ while True:
             if is_press == True:     
                 print('release')                
                 print(getCurrentTime())
+                print(getTemperature())
                 is_press = False
                 '''
                 url_str = 'https://自已的網址/pico_w/2024-01-22 16:02:10?address=chicken_KFC&celsius=15.386'

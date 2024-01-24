@@ -1,4 +1,4 @@
-from machine import Pin
+from machine import Pin, ADC
 from tools import connect,reconnect
 import time
 import urequests
@@ -20,6 +20,11 @@ def getTemperature():
     temperature = 27 - (reading - 0.706)/0.001721
     return temperature
 
+def getLightValue():
+    adc_light = ADC(Pin(28))
+    light_value = adc_light.read_u16()
+    return light_value
+
 while True:
     if btn.value():
         #解決按下彈跳
@@ -35,6 +40,7 @@ while True:
                 print('release')                
                 print(getCurrentTime())
                 print(getTemperature())
+                print(getLightValue())
                 is_press = False
                 '''
                 url_str = 'https://自已的網址/pico_w/2024-01-22 16:02:10?address=chicken_KFC&celsius=15.386'

@@ -10,15 +10,20 @@ is_press = False
 
 while True:
     if btn.value():
+        #解決按下彈跳
         time.sleep_ms(50)
         if btn.value():
             is_press = True
             red_led.value(1)
     else:
+        #解決放開彈跳
         time.sleep_ms(50)
         if btn.value() == False:
             if is_press == True:     
                 print('release')
+                times_tuple = time.localtime()
+                currentTime = f'{times_tuple[0]}-{times_tuple[1]}-{times_tuple[2]} {times_tuple[3]}:{times_tuple[4]}:{times_tuple[5]}'
+                print(currentTime)
                 is_press = False
                 '''
                 url_str = 'https://自已的網址/pico_w/2024-01-22 16:02:10?address=chicken_KFC&celsius=15.386'
@@ -38,4 +43,3 @@ while True:
             
         
             red_led.value(0)
-        

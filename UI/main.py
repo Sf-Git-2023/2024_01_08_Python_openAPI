@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_autorefresh import st_autorefresh
 
-url = 'https://pico-tvdi-86zf.onrender.com/pico_w/?count=10'
+url = 'https://openapi-scdc.onrender.com/pico_w/?count=10'
 #自動reload頁面每10秒
 st_autorefresh(interval=10000, limit=10000, key="fizzbuzzcounter")
 

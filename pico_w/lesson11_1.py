@@ -4,7 +4,7 @@ import time
 import urequests
 
 red_led = Pin(15,mode=Pin.OUT)
-btn = Pin(14,mode=Pin.PULL_DOWN)
+btn = Pin(14, Pin.IN, Pin.PULL_DOWN)
 is_press = False
 connect()
 
